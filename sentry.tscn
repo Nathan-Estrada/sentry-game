@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://om5x0j06286v"]
+[gd_scene load_steps=4 format=3 uid="uid://om5x0j06286v"]
+
+[ext_resource type="Script" path="res://sentry.gd" id="1_1tfxl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rvrlm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2y4hh"]
 
 [node name="Sentry" type="Node3D"]
+script = ExtResource("1_1tfxl")
+
+[node name="Sentry Area" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135136, 0.511672, -0.000814319)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sentry Area"]
+shape = SubResource("BoxShape3D_rvrlm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sentry Area"]
+mesh = SubResource("BoxMesh_2y4hh")

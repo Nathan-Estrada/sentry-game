@@ -1,14 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://4mvjcvlf27va"]
+[gd_scene load_steps=10 format=3 uid="uid://4mvjcvlf27va"]
 
 [ext_resource type="PackedScene" uid="uid://dvjrj0mquesxl" path="res://player.tscn" id="1_kgjde"]
+[ext_resource type="Script" path="res://main.gd" id="1_kwydq"]
+[ext_resource type="Texture2D" uid="uid://c25nqm2hvkf3f" path="res://Assets/textures/gravel_concrete_03_disp_4k.png" id="2_juwb6"]
+[ext_resource type="Texture2D" uid="uid://bctc5yq3oo3t7" path="res://Assets/textures/gravel_concrete_03_nor_gl_4k.png" id="3_dmy6o"]
+[ext_resource type="Texture2D" uid="uid://cr8ku5tofav4h" path="res://Assets/textures/gravel_concrete_03_rough_4k.png" id="4_cicnr"]
+[ext_resource type="PackedScene" uid="uid://om5x0j06286v" path="res://sentry.tscn" id="6_4sq1g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4qpbm"]
-size = Vector3(60, 2, 60)
+size = Vector3(150, 2, 150)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l0qbo"]
+albedo_texture = ExtResource("2_juwb6")
+roughness_texture = ExtResource("4_cicnr")
+normal_enabled = true
+normal_texture = ExtResource("3_dmy6o")
+uv1_scale = Vector3(60, 60, 60)
 
 [sub_resource type="BoxMesh" id="BoxMesh_esmeu"]
-size = Vector3(60, 2, 60)
+material = SubResource("StandardMaterial3D_l0qbo")
+size = Vector3(150, 2, 150)
 
 [node name="Main" type="Node"]
+script = ExtResource("1_kwydq")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -20,8 +34,11 @@ shape = SubResource("BoxShape3D_4qpbm")
 mesh = SubResource("BoxMesh_esmeu")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.690592, 0.723244, 0, -0.723244, -0.690592, 2.76821, 4.3373, -1.05538)
+transform = Transform3D(-0.788198, -0.173695, 0.590402, 0.614743, -0.267281, 0.742059, 0.0289113, 0.947835, 0.317448, 4.76821, 6.3373, -3.05538)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_kgjde")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Sentry" parent="." instance=ExtResource("6_4sq1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
