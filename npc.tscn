@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dstm6eyb2empg"]
+
+[ext_resource type="Script" path="res://npc.gd" id="1_1ivvr"]
+[ext_resource type="PackedScene" uid="uid://dv33kjk31baut" path="res://Assets/Zombie.glb" id="2_rncn4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pr5e5"]
+size = Vector3(1.54486, 4.12903, 2.28174)
+
+[node name="NPC" type="CharacterBody3D"]
+script = ExtResource("1_1ivvr")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Zombie" parent="Pivot" instance=ExtResource("2_rncn4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.236296, 1.99317, 0.953595)
+shape = SubResource("BoxShape3D_pr5e5")

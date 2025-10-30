@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://om5x0j06286v"]
 
 [ext_resource type="Script" path="res://sentry.gd" id="1_1tfxl"]
+[ext_resource type="PackedScene" uid="uid://nye042tu847n" path="res://Assets/Rail Gun Turret.glb" id="2_11551"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rvrlm"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_2y4hh"]
+size = Vector3(2.21524, 1.43896, 5.00482)
 
 [node name="Sentry" type="Node3D"]
 script = ExtResource("1_1tfxl")
@@ -13,7 +13,14 @@ script = ExtResource("1_1tfxl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135136, 0.511672, -0.000814319)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sentry Area"]
+transform = Transform3D(1, 0, 0, 0, 2.21921, 0, 0, 0, 1, -0.0847363, 1.2148, 0.648255)
 shape = SubResource("BoxShape3D_rvrlm")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Sentry Area"]
-mesh = SubResource("BoxMesh_2y4hh")
+[node name="Root Scene" parent="Sentry Area" instance=ExtResource("2_11551")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

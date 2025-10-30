@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://4mvjcvlf27va"]
+[gd_scene load_steps=11 format=3 uid="uid://4mvjcvlf27va"]
 
 [ext_resource type="PackedScene" uid="uid://dvjrj0mquesxl" path="res://player.tscn" id="1_kgjde"]
 [ext_resource type="Script" path="res://main.gd" id="1_kwydq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bctc5yq3oo3t7" path="res://Assets/textures/gravel_concrete_03_nor_gl_4k.png" id="3_dmy6o"]
 [ext_resource type="Texture2D" uid="uid://cr8ku5tofav4h" path="res://Assets/textures/gravel_concrete_03_rough_4k.png" id="4_cicnr"]
 [ext_resource type="PackedScene" uid="uid://om5x0j06286v" path="res://sentry.tscn" id="6_4sq1g"]
+[ext_resource type="PackedScene" uid="uid://dstm6eyb2empg" path="res://npc.tscn" id="7_rotpi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4qpbm"]
 size = Vector3(150, 2, 150)
@@ -42,3 +43,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Sentry" parent="." instance=ExtResource("6_4sq1g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
+
+[node name="NPC" parent="." instance=ExtResource("7_rotpi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6)
