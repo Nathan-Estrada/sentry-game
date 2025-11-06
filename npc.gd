@@ -15,3 +15,5 @@ func _physics_process(delta: float) -> void:
 	animation.play("Armature|Walk")
 	move_and_slide()
 	
+func _zombie_death():
+	pass
